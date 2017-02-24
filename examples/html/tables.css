@@ -1,0 +1,9 @@
+/*
+File heading.css
+Author: Emmanuel Benoist
+Target: show the very begining of CSS functionalities -> class and colors
+*/
+
+table.colored {color:#907000}
+.colored th   {background:#CCFFCC}
+.colored td.red {background: #FF0000; color: #000000; align: center}

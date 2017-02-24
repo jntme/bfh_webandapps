@@ -1,0 +1,12 @@
+/*
+File heading.css
+Author: Emmanuel Benoist
+Target: show the very begining of CSS functionalities -> class and colors
+*/
+body {        
+     font-family:            helvetica, arial, sans-serif;
+     }
+h1 {color:red}
+h2 {color:blue}
+h2.second {color:#F0C000}
+h3.second {color:#907000}
