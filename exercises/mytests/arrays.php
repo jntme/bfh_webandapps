@@ -3,7 +3,6 @@
 
 $arrayD = array();
 
-
 $arrayD[] = 'Hello';
 $arrayD[] = 'World';
 
@@ -16,6 +15,4 @@ foreach($arrayD as $i) {
     echo $i;
 }
 
-echo isset($arrayD);
-
-?>
+echo isset($arrayD);?>
