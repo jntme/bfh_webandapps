@@ -2,10 +2,9 @@
 
 session_start();
 
-if(!isset($_SESSION['count'])) {
+if (!isset($_SESSION['count'])) {
     $_SESSION['count'] = 0;
-}
-else {
+} else {
     $_SESSION['count'] += 1;
 }
 
@@ -14,6 +13,3 @@ echo 'Yu visit for the '.$_SESSION['count'].' time!';
 $_SESSION['favcolor'] = 'green';
 $_SESSION['animal'] = 'cat';
 $_SESSION['time'] = time();
-
-
- ?>
