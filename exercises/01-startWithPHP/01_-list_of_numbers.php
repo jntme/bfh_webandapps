@@ -34,5 +34,3 @@ if (isset($_GET['textfield']) and ($_GET['textfield'] != "")) {
 </form>
 </body>
 </html>
-
-
