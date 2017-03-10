@@ -23,6 +23,7 @@ function generate_array($min, $max, $count) {
         $arr[] = mt_rand($min, $max);
     }
     return $arr;
+    return $another;
 }
 ?>
 

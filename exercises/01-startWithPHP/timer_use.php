@@ -15,7 +15,7 @@ if(isset($_POST["pressed"])) {
 
     } else if($_POST["pressed"] == "stop") {
 
-        echo "Stopped! Elapsed time: ".$timer->stop();
+        echo "Stopped! Elapsed time: ".number_format($timer->stop(), 2, ".", "'")."s";
 
     } else if ($_POST["reset"] = "reset") {
 
