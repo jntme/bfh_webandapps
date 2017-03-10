@@ -1,10 +1,18 @@
 <?php
 
-$my_arr = array();
+include_once("timer.php");
 
-for($i = 0;$i<100; $i++) {
+$size = 100;
+
+$timer = new Timer();
+
+for($i = 0;$i<$size; $i++) {
     $my_arr[] = $i;
 }
+
+$timer->start();
+sort($my_arr);
+$duration = $timer->stop();
 
 
 ?>
@@ -21,6 +29,7 @@ for($i = 0;$i<100; $i++) {
 <?php
 print_r($my_arr);
 ?>
+    <p>The process to sort an array (<?=$size?>x<?=$size?>) took <?php echo number_format($duration, 5, ".", "'")."s.";?></p>
     </div>
 </body>
 </html>

@@ -1,10 +1,8 @@
 <?php
 
-
 class Timer {
 
     private $start_time = 0;
-    private $stop_time = 0;
 
     function start() {
         $this->start_time = microtime(true);
@@ -21,5 +19,3 @@ class Timer {
         $this->stop_time = 0;
     }
 }
-
-?>
