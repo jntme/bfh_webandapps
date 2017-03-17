@@ -6,6 +6,7 @@
 </head>
 <body>
 
+<h2>Patients</h2>
 <?php
 
 $hostname = "localhost";
@@ -15,19 +16,19 @@ $password = "";
 try {
   $dbh = new PDO("mysql:host=$hostname;dbname=medicalinformatics", $username, $password);
 
-  $query = "select patient.first_name, patient.name, sign.sign_name, vital_sign.value from patient, vital_sign, sign where patient.patientID = vital_sign.patientID and vital_sign.signID= sign.signID;";
+  $query = "select * from patient;";
 
   $stmt = $dbh->query($query);
 
-  while($staff= $stmt->fetch()) {
+  while($patient= $stmt->fetch()) {
 
     //print_r($patient);
 
     //| staffID | username | name   | first_name | fonctionID | functionID | function_name |
-    echo "<b>first_name:</b> ".$staff['first_name']."<br>";
-    echo "<b>name:</b> ".$staff['name']."<br>";
-    echo "<b>sign_name:</b> ".$staff['sign_name']."<br>";
-    echo "<b>value:</b> ".$staff['value']."<br>";
+    //echo "<b>first_name:</b> ".$staff['first_name']."<br>";
+    //echo "<b>name:</b> ".$staff['name']."<br>";
+    echo "<a href='05_patientInfo.php?patID=$patient[patientID]'>".$patient['name']." ".$patient['first_name']."</a>";
+
     echo "<br>";
   }
 
@@ -36,7 +37,6 @@ catch(PDOException $ex) {
   echo $ex;
 }
 ?>
-
 </body>
 </html>
 
