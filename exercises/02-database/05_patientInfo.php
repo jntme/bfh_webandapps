@@ -41,6 +41,7 @@ try {
 
   carriage_return();
   carriage_return();
+
   echo "<a href='05_patientTool.php'>back</a>";
 
 }
