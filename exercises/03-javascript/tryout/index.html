@@ -11,8 +11,9 @@
 <body>
     <form name="form" action="">
         <input type="text" name="number" size="3"><br><br>
-        <button type="button" onClick="square()">compute!</button>
-        <button type="button" onMouseup="showAction()">compute!</button>
+        <button type="button" onClick="square()">compute square!</button>
+        <br><br>
+        <button type="button" onmousedown="showAction()" onmouseup="clearCanvas()">show something!</button>
     </form>
 
     <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
