@@ -8,5 +8,5 @@ $username = 'root';
 /*** mysql password ***/
 $password = '';
 
-$dbname = 'medicalinformatics';
+$dbname = 'medizininformatik';
 ?>
