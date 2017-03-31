@@ -6,19 +6,17 @@ window.onload = function() {
 
     btnList = Array.from(btnList);
     btnList.forEach(function(entry) {
-        var newp = document.createElement('p');
+       var newp = document.createElement('p');
         entry.addEventListener("click", getNumberFunction(entry.innerHTML));
     });
 }
 
-function getNumberFunction(number) {
+function getNumberFunction(sign) {
     return function() {
         var calcField = document.getElementById('calcfield'); 
         calcField.innerHTML += number;
-
-        // var str = "*";
-        // var patt = new RegExp("[\*\+-\/]");
-        // var res = patt.test()
+        var patt = new RegExp("[\*\+-\/]");
+        var res = patt.test(number)
         
     }
 }
