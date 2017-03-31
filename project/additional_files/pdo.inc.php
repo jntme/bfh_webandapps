@@ -3,10 +3,10 @@
 $hostname = 'localhost';
 
 /*** mysql username ***/
-$username = 'macmanu_webprog';
+$username = 'root';
 
 /*** mysql password ***/
-$password = 'D9wUbZN2uk';
+$password = '';
 
-$dbname = 'medizininformatik';
+$dbname = 'medicalinformatics';
 ?>

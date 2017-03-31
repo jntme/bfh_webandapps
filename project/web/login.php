@@ -12,7 +12,7 @@ $user = $_POST['username'];
 $pwd= $_POST['password'];
 
 
-include('pdo.inc.php');
+include('../additional_files/pdo.inc.php');
 
 try {
     $dbh = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);

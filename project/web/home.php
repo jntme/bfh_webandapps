@@ -10,7 +10,7 @@ if(!isset($_SESSION['staffID'])){
  }
 
 
-include('pdo.inc.php');
+include('../additional_files/pdo.inc.php');
 
 try {
     $dbh = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
