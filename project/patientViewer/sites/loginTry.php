@@ -3,7 +3,7 @@
   // They are the names of our staff members.
 
 if (!isset($_POST['username']) or !isset($_POST['password'])) {
-    include('index.php');
+    include('../index.php');
     exit();
 }
 
@@ -44,8 +44,12 @@ try {
         $_SESSION['name'] = $row['name'];
         $_SESSION['first_name'] = $row['first_name'];
 
+        $_SESSION['state'] = 'overview';
+
       // redirect to the page home.php
-        header('location: home.php');
+        header('location: ../index.php');
+
+
     }
 
     /*** close the database connection ***/

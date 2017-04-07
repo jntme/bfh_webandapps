@@ -36,7 +36,7 @@ try {
     $stmt->execute();
 
     // redirect to the page home.php
-    header('location: patient.php?id='.$patientID);
+    header('location: ../index.php?state=patient&id='.$patientID);
 
     
 
