@@ -26,8 +26,12 @@ if(isset($_GET['state'])) {
     case 'home': $state = "home"; break;
     case 'overview': $state = "overview"; break;
     case 'patient': $state = "patient"; break;
+    case 'medicine': $state = "medicine"; break;
   }
 }
+
+// for debugpurposes:
+// echo $state;
 
 ?>
 
@@ -117,6 +121,10 @@ if(isset($_GET['state'])) {
             break;
           case 'patient':
             include("sites/patient.php");
+            break;
+          case 'medicine':
+            include "sites/medicine.php";
+            break;
         }
       ?>
 

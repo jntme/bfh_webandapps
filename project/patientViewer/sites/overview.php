@@ -10,7 +10,12 @@ if(!isset($_SESSION['staffID'])){
  }
 
 
-include('../additional_files/pdo.inc.php');
+include('./additional_files/pdo.inc.php');
+// the following is just for test purposes
+// echo "Password: ".$password."<br>";
+// echo "DB Name: ".$dbname."<br>";
+// echo "Username: ".$username."<br>";
+// echo "Hostname: ".$hostname."<br>";
 
 try {
     $dbh = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
@@ -41,7 +46,7 @@ try {
         <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
     </a>
 
-    <a href="index.php?state=patient&id=<?=$line['patientID']?>" class="btn btn-default" role="button">
+    <a href="index.php?state=medicine&id=<?=$line['patientID']?>" class="btn btn-default" role="button">
     <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
     </a>
 </div>

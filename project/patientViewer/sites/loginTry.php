@@ -13,6 +13,11 @@ $pwd= $_POST['password'];
 
 
 include('../additional_files/pdo.inc.php');
+// the following is just for test purposes
+// echo "Password: ".$password."<br>";
+// echo "DB Name: ".$dbname."<br>";
+// echo "Username: ".$username."<br>";
+// echo "Hostname: ".$hostname."<br>";
 
 try {
     $dbh = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
@@ -40,6 +45,7 @@ try {
 
     /*** loop of the results ***/
     foreach ($result as $row) {
+        print_r($row);
         $_SESSION['staffID']= $row['staffID'];
         $_SESSION['name'] = $row['name'];
         $_SESSION['first_name'] = $row['first_name'];

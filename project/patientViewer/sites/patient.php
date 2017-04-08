@@ -8,7 +8,7 @@ if (!isset($_SESSION['staffID'])) {
 }
 
 
-include('../additional_files/pdo.inc.php');
+include('./additional_files/pdo.inc.php');
 
 try {
     $dbh = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
@@ -127,10 +127,5 @@ while ($line = $statement->fetch()) {
     echo $e->getMessage();
 }
 
-
-// include("medicine.php");
-
-// $patientID = (int)($_GET['id']);
-// show_medicineForPatient($patientID);
 
 ?>
