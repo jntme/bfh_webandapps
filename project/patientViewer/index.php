@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-
-
 // the state says where to go
 // states possible:
 // home ->home.php

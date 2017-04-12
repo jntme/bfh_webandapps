@@ -1,0 +1,12 @@
+<div *ngIf="patient" class="card col-md-4">
+    <div class="card-block">
+        <h3>{{patient.name}} details</h3>
+        <div>
+            <label>pid: </label> {{patient.pid}}
+        </div>
+        <div>
+            <label>name: </label>
+            <input [(ngModel)]="patient.name" placeholder="name">
+        </div>
+    </div>
+</div>
