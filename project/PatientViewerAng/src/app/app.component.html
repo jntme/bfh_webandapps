@@ -1,10 +1,7 @@
 <div class="container">
     <h1>{{title}}</h1>
-    <h2>Patients</h2>
-    <ul class="list-group col-md-8">
-        <a *ngFor="let patient of patients" (click)="onSelect(patient)" class="list-group-item" [class.active]="patient === selectedPatient" href="#">
-            {{patient.pid}} - {{patient.name}}
-        </a>
-    </ul>
-    <patient-detail [patient]="selectedPatient">Loading detail...</patient-detail>
+    <div class="navigation">
+        <a routerLink="/patients">Patients</a>
+    </div>
+    <router-outlet></router-outlet>
 </div>
