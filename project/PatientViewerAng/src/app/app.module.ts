@@ -8,24 +8,22 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { PatientDetailComponent } from './patient-detail/patient-detail.component';
 import { PatientsComponent } from './patients/patients.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AppRoutingModule } from "app/app-routing/app-routing.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientDetailComponent,
-    PatientsComponent
+    PatientsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot([
-      {
-        path: 'patients',
-        component: PatientsComponent
-      }
-    ])
+    AppRoutingModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

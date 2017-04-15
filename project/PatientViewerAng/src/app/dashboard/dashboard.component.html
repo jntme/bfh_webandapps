@@ -1,0 +1,14 @@
+<div class="row">
+    <h3>
+        Top 3 Patients
+    </h3>
+</div>
+<div class="row top10">
+    <a *ngFor="let patient of patients" class="col-md-3" [routerLink]="['/detail', patient.pid]">
+        <div class="card">
+            <div class="card-block">
+                <h5>{{patient.name}}</h5>
+            </div>
+        </div>
+    </a>
+</div>

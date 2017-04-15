@@ -1,7 +1,10 @@
 <div class="container">
-    <h1>{{title}}</h1>
-    <div class="navigation">
-        <a routerLink="/patients">Patients</a>
+    <div class="row">
+        <h1>{{title}}</h1>
     </div>
+    <nav class="nav">
+        <a class="nav-link" [class.active]="this.route.url === '/dashboard'" routerLink="/dashboard">Dashboard</a>
+        <a class="nav-link" [class.active]="this.route.url === '/patients'" routerLink="/patients">Patients</a>
+    </nav>
     <router-outlet></router-outlet>
 </div>

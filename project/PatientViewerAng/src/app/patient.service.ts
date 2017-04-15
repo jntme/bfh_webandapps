@@ -10,6 +10,11 @@ export class PatientService {
 
   constructor() { }
 
+  getPatient(pid: number): Promise<Patient> {
+    return this.getPatients()
+               .then(patients => patients.find(patient => patient.pid === pid));
+  }
+
   getPatients(): Promise<Patient[]> {
     return Promise.resolve(PATIENTS);
   }

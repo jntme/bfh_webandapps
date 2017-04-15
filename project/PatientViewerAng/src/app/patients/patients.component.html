@@ -1,7 +1,12 @@
-<h2>Patients</h2>
 <ul class="list-group col-md-8">
-    <a *ngFor="let patient of patients" (click)="onSelect(patient)" class="list-group-item" [class.active]="patient === selectedPatient">
+    <a *ngFor="let patient of patients" (click)="onSelect(patient)" class="list-group-item list-group-item-action" [class.active]="patient === selectedPatient">
             {{patient.pid}} - {{patient.name}}
         </a>
 </ul>
-<patient-detail [patient]="selectedPatient">Loading detail...</patient-detail>
+<div *ngIf="selectedPatient" class="col-md-4">
+    <h2>
+        {{selectedPatient.name | uppercase }}
+    </h2>
+    <p><b>PID: </b>{{selectedPatient.pid}}</p>
+    <button (click)="goToDetail(selectedPatient.pid)" class="btn btn-primary">View Details</button>
+</div>

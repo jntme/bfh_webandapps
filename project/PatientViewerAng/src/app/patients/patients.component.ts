@@ -1,6 +1,7 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Patient } from "app/patient";
 import { PatientService } from "app/patient.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'patients',
@@ -10,9 +11,12 @@ import { PatientService } from "app/patient.service";
 export class PatientsComponent implements OnInit {
 
   patients: Patient[];
-  @Output() selectedPatient: Patient;
+  selectedPatient: Patient;
 
-  constructor(private patientService: PatientService) {};
+  constructor(
+    private patientService: PatientService,
+    private router: Router
+    ) {};
 
   ngOnInit(): void {
     this.getPatients();
@@ -25,6 +29,10 @@ export class PatientsComponent implements OnInit {
 
   onSelect(patient: Patient): void {
    this.selectedPatient = patient; 
+  }
+
+  goToDetail(patientId: number): void {
+    this.router.navigate(['/detail', patientId]);
   }
 
 }
