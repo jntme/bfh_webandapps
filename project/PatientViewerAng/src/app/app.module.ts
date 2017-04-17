@@ -11,6 +11,10 @@ import { PatientsComponent } from './patients/patients.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from "app/app-routing/app-routing.module";
 
+// Imports for loading & configuring the in-memory web api
+import { InMemoryWebApiModule } from './in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +27,9 @@ import { AppRoutingModule } from "app/app-routing/app-routing.module";
     FormsModule,
     HttpModule,
     NgbModule.forRoot(),
-    AppRoutingModule 
+    AppRoutingModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
+
   ],
   providers: [],
   bootstrap: [AppComponent]

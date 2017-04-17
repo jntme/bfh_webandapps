@@ -1,4 +1,4 @@
 export class Patient {
-  pid: number;
+  id: number;
   name: string;
 }
