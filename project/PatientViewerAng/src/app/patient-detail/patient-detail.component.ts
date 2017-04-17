@@ -30,4 +30,9 @@ export class PatientDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save() : void {
+    this.patientService.update(this.patient)
+      .then(() => this.goBack());
+  }
+
 }

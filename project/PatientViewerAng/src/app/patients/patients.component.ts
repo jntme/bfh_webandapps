@@ -35,4 +35,14 @@ export class PatientsComponent implements OnInit {
     this.router.navigate(['/detail', patientId]);
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) {return ;}
+    this.patientService.create(name)
+      .then(patient => {
+        this.patients.push(patient);
+        this.selectedPatient = null;
+      });
+  }
+
 }

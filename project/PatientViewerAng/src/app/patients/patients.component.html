@@ -1,12 +1,22 @@
-<ul class="list-group col-md-8">
-    <a *ngFor="let patient of patients" (click)="onSelect(patient)" class="list-group-item list-group-item-action" [class.active]="patient === selectedPatient">
+<div class="row">
+    <ul class="list-group col-md-8">
+        <a *ngFor="let patient of patients" (click)="onSelect(patient)" class="list-group-item list-group-item-action" [class.active]="patient === selectedPatient">
             {{patient.id}} - {{patient.name}}
         </a>
-</ul>
-<div *ngIf="selectedPatient" class="col-md-4">
-    <h2>
-        {{selectedPatient.name | uppercase }}
-    </h2>
-    <p><b>PID: </b>{{selectedPatient.id}}</p>
-    <button (click)="goToDetail(selectedPatient.id)" class="btn btn-primary">View Details</button>
+    </ul>
+    <div *ngIf="selectedPatient" class="col-md-4">
+        <h2>
+            {{selectedPatient.name | uppercase }}
+        </h2>
+        <p><b>PID: </b>{{selectedPatient.id}}</p>
+        <button (click)="goToDetail(selectedPatient.id)" class="btn btn-primary">View Details</button>
+    </div>
+</div>
+
+<div class="row top5">
+    <h3>add new Patient</h3>
+    <label>Patient name:</label> <br><input #patientName />
+    <button class="btn btn-primary" (click)="add(patientName.value); patientName.value=''">
+        Add
+      </button>
 </div>

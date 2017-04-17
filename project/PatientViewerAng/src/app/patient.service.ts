@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Patient } from "app/patient";
-import { Http } from "@angular/http";
+import { Http, Headers } from "@angular/http";
 
 import 'rxjs/add/operator/toPromise';
 
@@ -15,7 +15,6 @@ export class PatientService {
   getPatient(pid: number): Promise<Patient> {
 
     const url = `${this.patientsUrl}/${pid}`;
-    console.log(url);
     return this.http.get(url)
                .toPromise()
                .then(response => response.json().data as Patient)
@@ -27,7 +26,6 @@ export class PatientService {
   }
 
   getPatients(): Promise<Patient[]> {
-    console.log(this.patientsUrl);
     return this.http.get(this.patientsUrl)
                .toPromise()
                .then(response => response.json().data as Patient[])
@@ -45,6 +43,23 @@ export class PatientService {
     });
   }
 
+  private headers = new Headers({'Content-Type': 'application/json'});
 
+  update(patient : Patient): Promise<Patient> {
+    const url = `${this.patientsUrl}/${patient.id}`;
+     return this.http
+       .put(url, JSON.stringify(patient), {headers: this.headers}) 
+       .toPromise()
+       .then(() => patient)
+       .catch(this.handleError);
+  }
+
+  create(name : string): Promise<Patient> {
+    return this.http
+               .post(this.patientsUrl, JSON.stringify({name: name}), { headers: this.headers})
+               .toPromise()
+               .then(res => res.json().data as Patient)
+               .catch(this.handleError);
+  }
 }
 
