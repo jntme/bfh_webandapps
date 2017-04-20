@@ -14,13 +14,15 @@ import { AppRoutingModule } from "app/app-routing/app-routing.module";
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from './in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
+import { PatientSearchComponent } from './patient-search/patient-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientDetailComponent,
     PatientsComponent,
-    DashboardComponent
+    DashboardComponent,
+    PatientSearchComponent
   ],
   imports: [
     BrowserModule,

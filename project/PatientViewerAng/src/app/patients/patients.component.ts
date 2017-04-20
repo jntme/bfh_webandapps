@@ -45,4 +45,12 @@ export class PatientsComponent implements OnInit {
       });
   }
 
+  delete(patient: Patient) : void {
+    this.patientService
+      .delete(patient.id)
+      .then(() => {
+            this.patients = this.patients.filter(h => h !== patient);
+            if(this.selectedPatient === patient) {this.selectedPatient = null; }
+      });
+  }
 }

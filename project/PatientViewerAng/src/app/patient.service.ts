@@ -16,9 +16,9 @@ export class PatientService {
 
     const url = `${this.patientsUrl}/${pid}`;
     return this.http.get(url)
-               .toPromise()
-               .then(response => response.json().data as Patient)
-               .catch(error => this.handleError(this));
+      .toPromise()
+      .then(response => response.json().data as Patient)
+      .catch(error => this.handleError(this));
 
     // return this.getPatients()
     //            .then(patients => patients.find(patient => patient.pid === pid));
@@ -27,11 +27,11 @@ export class PatientService {
 
   getPatients(): Promise<Patient[]> {
     return this.http.get(this.patientsUrl)
-               .toPromise()
-               .then(response => response.json().data as Patient[])
-               .catch(this.handleError);
+      .toPromise()
+      .then(response => response.json().data as Patient[])
+      .catch(this.handleError);
   }
-  
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
@@ -43,23 +43,31 @@ export class PatientService {
     });
   }
 
-  private headers = new Headers({'Content-Type': 'application/json'});
+  private headers = new Headers({ 'Content-Type': 'application/json' });
 
-  update(patient : Patient): Promise<Patient> {
+  update(patient: Patient): Promise<Patient> {
     const url = `${this.patientsUrl}/${patient.id}`;
-     return this.http
-       .put(url, JSON.stringify(patient), {headers: this.headers}) 
-       .toPromise()
-       .then(() => patient)
-       .catch(this.handleError);
+    return this.http
+      .put(url, JSON.stringify(patient), { headers: this.headers })
+      .toPromise()
+      .then(() => patient)
+      .catch(this.handleError);
   }
 
-  create(name : string): Promise<Patient> {
+  create(name: string): Promise<Patient> {
     return this.http
-               .post(this.patientsUrl, JSON.stringify({name: name}), { headers: this.headers})
-               .toPromise()
-               .then(res => res.json().data as Patient)
-               .catch(this.handleError);
+      .post(this.patientsUrl, JSON.stringify({ name: name }), { headers: this.headers })
+      .toPromise()
+      .then(res => res.json().data as Patient)
+      .catch(this.handleError);
+  }
+
+  delete(id: number): Promise<void> {
+    const url = `${this.patientsUrl}/${id}`;
+    return this.http.delete(url, { headers: this.headers })
+      .toPromise()
+      .then(() => null)
+      .catch(this.handleError);
   }
 }
 
