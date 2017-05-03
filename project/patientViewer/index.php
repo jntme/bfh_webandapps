@@ -2,6 +2,7 @@
 session_start();
 
 // the state says where to go
+//
 // states possible:
 // home ->home.php
 // login -> login.php
@@ -18,6 +19,7 @@ else {
   $state = $_SESSION['state'];
 }
 
+// get state from GET
 if(isset($_GET['state'])) {
   switch($_GET['state']) {
     case 'login': $state = "login"; break;
@@ -28,7 +30,7 @@ if(isset($_GET['state'])) {
   }
 }
 
-// for debugpurposes:
+// for debug purposes:
 // echo $state;
 
 ?>
