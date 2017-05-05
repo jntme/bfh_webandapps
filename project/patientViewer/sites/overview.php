@@ -47,7 +47,7 @@ try {
     </a>
 
     <a href="index.php?state=medicine&id=<?=$line['patientID']?>" class="btn btn-default" role="button">
-    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
     </a>
 </div>
 
