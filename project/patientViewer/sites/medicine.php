@@ -24,7 +24,7 @@ try {
 
 
         while ($line = $statement0->fetch()) {
-            echo "<div class='starter-template'>";
+            echo "<div class='center'>";
             echo "<h1 class='col-md-12'> Patient: ".$line['first_name']."  ".$line['name']."</h1>";
             echo "<p class='lead'>Medicine</p>";
             echo "</div>";
@@ -69,12 +69,11 @@ while ($line = $statement->fetch()) {
 ?>
         </table>
         </div>
-
-
   
 <?php
+    //insert another php file, so this one does not get
+    //too large
     include("newDonationPanel.php");
-
     } else {
         echo "<h1>The patient does not exist</h1>";
     }
@@ -84,7 +83,5 @@ while ($line = $statement->fetch()) {
     /*** echo the sql statement and error message ***/
     echo $e->getMessage();
 }
-
-
 
 ?>

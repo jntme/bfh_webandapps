@@ -1,11 +1,13 @@
 <?php
 
-print_r($_POST);
+// for test purposes:
+// print_r($_POST);
 
-if(!isset($_POST['quantity']) OR !isset($_POST['physID']) OR !isset($_POST['medicamentID']) OR !isset($_POST['nurseID']))  {
-  include('../index.php');
-  exit();
- }
+// if a paramenter is missing, move to index.php
+if (!isset($_POST['quantity']) or !isset($_POST['physID']) or !isset($_POST['medicamentID']) or !isset($_POST['nurseID'])) {
+    include('../index.php');
+    exit();
+}
 
 session_start();
 $quantity = $_POST['quantity'];
@@ -18,8 +20,8 @@ $note = $_POST['note'];
 include('../additional_files/pdo.inc.php');
 
 try {
+    //
     $dbh = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
-    /*** echo a message saying we have connected ***/
     // echo 'Connected to database<br />';
 
 
@@ -48,13 +50,6 @@ try {
 
     /*** close the database connection ***/
     $dbh = null;
-
-    }
-catch(PDOException $e)
-    {
+} catch (PDOException $e) {
     echo $e->getMessage();
-    }
-
-
-
-?>
+}

@@ -16,7 +16,7 @@ export class PatientsComponent implements OnInit {
   constructor(
     private patientService: PatientService,
     private router: Router
-    ) {};
+  ) { };
 
   ngOnInit(): void {
     this.getPatients();
@@ -28,7 +28,7 @@ export class PatientsComponent implements OnInit {
   }
 
   onSelect(patient: Patient): void {
-   this.selectedPatient = patient; 
+    this.selectedPatient = patient;
   }
 
   goToDetail(patientId: number): void {
@@ -37,7 +37,7 @@ export class PatientsComponent implements OnInit {
 
   add(name: string): void {
     name = name.trim();
-    if (!name) {return ;}
+    if (!name) { return; }
     this.patientService.create(name)
       .then(patient => {
         this.patients.push(patient);
@@ -45,12 +45,12 @@ export class PatientsComponent implements OnInit {
       });
   }
 
-  delete(patient: Patient) : void {
+  delete(patient: Patient): void {
     this.patientService
       .delete(patient.id)
       .then(() => {
-            this.patients = this.patients.filter(h => h !== patient);
-            if(this.selectedPatient === patient) {this.selectedPatient = null; }
+        this.patients = this.patients.filter(h => h !== patient);
+        if (this.selectedPatient === patient) { this.selectedPatient = null; }
       });
   }
 }
