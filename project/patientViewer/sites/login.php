@@ -1,8 +1,9 @@
-<div class="starter-template">
+
+
+<div class="center">
 <h1>Login</h1>
 <p class="lead">Try to login yourself.</p>
 </div>
-
 
 
 <form action="sites/loginTry.php" method="POST">

@@ -27,21 +27,20 @@ WHERE patient.patientID = :patientID";
 
         while ($line = $statement0->fetch()) {
 
+
              $gender = ""; 
                 if ($line['gender'] == 1){
                     $gender = "M";
                 } else {$gender = "W";}
 
+            echo "<div class='center'>";
 
-            echo "<div class='starter-template'>";
             echo "<h1 class='col-md-12'> Patient: ".$line['first_name']."  ".$line['name']."</h1>";
             echo "<p>Patienten ID: ".$line['MRN']."<tab> | <tab>Geburtsdatum: ".$line['birthdate']."<tab> | <tab>Geschlecht: ".$gender."</p><br>";
             
             echo "<p class='lead'>Vital Signs</p>";
             echo "</div>";
         }
-
-
 
     /*** echo a message saying we have connected ***/
         $sql = "SELECT name, first_name, value, time, sign_name
@@ -77,7 +76,6 @@ while ($line = $statement->fetch()) {
         </table>
         </div>
 
-
         <div class='col-md-1'></div>
         <div class='col-md-4'>
         <div class='panel panel-default'>
@@ -87,7 +85,7 @@ while ($line = $statement->fetch()) {
             </div>
             <div class='panel-body'>
 
-        <form action='sites/addsign.php' method='POST' class='form-horizontal'>
+        <form action='sites/addSign.php' method='POST' class='form-horizontal'>
         <input type='hidden' name='patientID' value='<?=$patientID?>'>
 
         <div class='form-group'><div class='col-sm-12'><select class='form-control' name='signID'>
@@ -136,6 +134,5 @@ while ($line = $statement->fetch()) {
     /*** echo the sql statement and error message ***/
     echo $e->getMessage();
 }
-
 
 ?>

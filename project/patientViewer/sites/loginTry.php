@@ -54,8 +54,6 @@ try {
 
       // redirect to the page home.php
         header('location: ../index.php');
-
-
     }
 
     /*** close the database connection ***/
@@ -63,7 +61,3 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
-
-
-
-?>

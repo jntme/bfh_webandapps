@@ -1,4 +1,5 @@
-<div class="starter-template">
+<!-- the main or welcome page -->
+<div class="center">
 <h1>Welcome to the PatientViewer!</h1>
 <p class="lead">Try to login yourself.</p><br>
 <p>Mit dieser App können Sie die Vitalwerte und die Medikation Ihrer Patienten verwalten.</p><br>

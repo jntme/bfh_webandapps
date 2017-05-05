@@ -1,0 +1,16 @@
+body {
+    padding-top: 50px;
+}
+
+h1 {
+    padding-bottom: 10px;
+}
+
+.center {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.loginpanel {
+    padding: 20px;
+}

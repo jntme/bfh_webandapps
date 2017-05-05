@@ -1,13 +1,13 @@
-<div class="starter-template">
+<div class="center">
 
 <?php
 
 // Test if the user is logged in.
 // If no : back to the login page!
-if(!isset($_SESSION['staffID'])){
-  header('location: index.php');
-  exit;
- }
+if (!isset($_SESSION['staffID'])) {
+    header('location: index.php');
+    exit;
+}
 
 
 include('./additional_files/pdo.inc.php');
@@ -30,15 +30,15 @@ try {
 
     echo "<div class='col-md-4'></div>";
     echo "<ul class='list-group col-md-4'>";
-    while($line = $result->fetch()){
-      echo "<li class='list-group-item'>";
-      echo "<div class='row'>";
-      echo "<div class='col-sm-8 text-center'>";
+    while ($line = $result->fetch()) {
+        echo "<li class='list-group-item'>";
+        echo "<div class='row'>";
+        echo "<div class='col-sm-8 text-center'>";
 
 
-      echo $line['first_name']." ".$line['name'];
+        echo $line['first_name']." ".$line['name'];
 
-      echo "</div>";
+        echo "</div>";
 ?>
 
 <div class="text-center col-sm-4">
@@ -60,14 +60,10 @@ echo "</div>";
     echo "<div class='col-md-4'></div>";
     
     $dbh = null;
-}
-catch(PDOException $e)
-{
-
+} catch (PDOException $e) {
     /*** echo the sql statement and error message ***/
     echo $e->getMessage();
 }
-
 
 ?> 
 

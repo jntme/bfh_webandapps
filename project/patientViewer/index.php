@@ -13,22 +13,31 @@ $state = "";
 
 // Test if the user is logged in.
 // If no : back to the login page!
-if(!isset($_SESSION['state'])){
-  $state = "home";
-}
-else {
-  $state = $_SESSION['state'];
+if (!isset($_SESSION['state'])) {
+    $state = "home";
+} else {
+    $state = $_SESSION['state'];
 }
 
 // get state from GET
-if(isset($_GET['state'])) {
-  switch($_GET['state']) {
-    case 'login': $state = "login"; break;
-    case 'home': $state = "home"; break;
-    case 'overview': $state = "overview"; break;
-    case 'patient': $state = "patient"; break;
-    case 'medicine': $state = "medicine"; break;
-  }
+if (isset($_GET['state'])) {
+    switch ($_GET['state']) {
+        case 'login':
+            $state = "login";
+            break;
+        case 'home':
+            $state = "home";
+            break;
+        case 'overview':
+            $state = "overview";
+            break;
+        case 'patient':
+            $state = "patient";
+            break;
+        case 'medicine':
+            $state = "medicine";
+            break;
+    }
 }
 
 // for debug purposes:
@@ -42,7 +51,6 @@ if(isset($_GET['state'])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- <link rel="icon" href="../../favicon.ico"> -->
@@ -56,7 +64,7 @@ if(isset($_GET['state'])) {
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -71,6 +79,7 @@ if(isset($_GET['state'])) {
 
   <body>
 
+<!-- the bootstrab nav bar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -85,51 +94,52 @@ if(isset($_GET['state'])) {
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <?php
-                if($state == 'home' && !isset($_SESSION['staffID'])) {
-                  echo "<a href='?state=login'>Login</a>";
+                <?php
+                if ($state == 'home' && !isset($_SESSION['staffID'])) {
+                    echo "<a href='?state=login'>Login</a>";
                 }
-                if(isset($_SESSION['staffID'])) {
-                  echo "<a href='sites/logout.php'>Logout</a>";
+                if (isset($_SESSION['staffID'])) {
+                    echo "<a href='sites/logout.php'>Logout</a>";
                 }
-               ?>
+                ?>
               </li>
-              <?php
+                <?php
                 echo "<li>";
-                  if(isset($_SESSION['staffID'])) {
+                if (isset($_SESSION['staffID'])) {
                     echo "<a href='?state=overview'>Overview</a>";
-                  }
+                }
                 echo "</li>";
-              ?>
+                ?>
               
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
 
     <div class="container">
 
-      <?php
-        switch($state) {
-          case 'home': 
-            include("sites/home.php");
-            break;
-          case 'login':
-            include("sites/login.php");
-            break;
-          case 'overview':
-            include("sites/overview.php");
-            break;
-          case 'patient':
-            include("sites/patient.php");
-            break;
-          case 'medicine':
-            include "sites/medicine.php";
-            break;
+        <?php
+        //selector to include the right page for the state
+        switch ($state) {
+            case 'home':
+                include("sites/home.php");
+                break;
+            case 'login':
+                include("sites/login.php");
+                break;
+            case 'overview':
+                include("sites/overview.php");
+                break;
+            case 'patient':
+                include("sites/patient.php");
+                break;
+            case 'medicine':
+                include "sites/medicine.php";
+                break;
         }
-      ?>
+        ?>
 
-    </div><!-- /.container -->
+    </div>
 
 
     <!-- Bootstrap core JavaScript
