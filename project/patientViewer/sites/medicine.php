@@ -14,7 +14,7 @@ try {
 
     $patientID = (int)($_GET['id']);
     if ($patientID >0) {
-        $sql0 = "SELECT name, first_name
+        $sql0 = "SELECT name, first_name, birthdate, MRN, gender
         FROM patient
         WHERE patient.patientID = :patientID";
 
@@ -24,8 +24,16 @@ try {
 
 
         while ($line = $statement0->fetch()) {
+          
+            $gender = ""; 
+                if ($line['gender'] == 1){
+                    $gender = "M";
+                } else {$gender = "W";}
+
             echo "<div class='center'>";
+
             echo "<h1 class='col-md-12'> Patient: ".$line['first_name']."  ".$line['name']."</h1>";
+            echo "<p>Patienten ID: ".$line['MRN']."<tab> | <tab>Geburtsdatum: ".$line['birthdate']."<tab> | <tab>Geschlecht: ".$gender."</p><br>";
             echo "<p class='lead'>Medicine</p>";
             echo "</div>";
         }
