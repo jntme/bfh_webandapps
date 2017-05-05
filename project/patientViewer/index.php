@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// Test Fabi
 // the state says where to go
 //
 // states possible:
