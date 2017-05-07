@@ -14,7 +14,7 @@ try {
 
     $patientID = (int)($_GET['id']);
     if ($patientID >0) {
-        $sql0 = "SELECT name, first_name, birthdate, MRN, gender
+        $sql0 = "SELECT patientID, name, first_name, birthdate, MRN, gender
         FROM patient
         WHERE patient.patientID = :patientID";
 
@@ -31,11 +31,22 @@ try {
                 } else {$gender = "W";}
 
             echo "<div class='center'>";
+        
+        ?>                
+            <div class="text-center col-sm-1">
+            <a href="index.php?state=patient&id=<?=$line['patientID']?>" class="btn btn-default" role="button">
+            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+            </a>
+            </div>
+        <?php
 
             echo "<h1 class='col-md-12'> Patient: ".$line['first_name']."  ".$line['name']."</h1>";
+
             echo "<p>Patienten MRN: ".$line['MRN']."<tab> | <tab>Geburtsdatum: ".$line['birthdate']."<tab> | <tab>Geschlecht: ".$gender."</p><br>";
+
             echo "<p class='lead'>Medicine</p>";
             echo "</div>";
+     
         }
 
         $sql = "SELECT 	medicine.medicamentID, medicine.time, medicine.quantity, medicine.patientID, medicine.staffID_nurse, medicine.staffID_physician, medicine.note, 
