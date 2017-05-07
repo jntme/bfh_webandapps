@@ -36,7 +36,7 @@ WHERE patient.patientID = :patientID";
             echo "<div class='center'>";
 
             echo "<h1 class='col-md-12'> Patient: ".$line['first_name']."  ".$line['name']."</h1>";
-            echo "<p>Patienten ID: ".$line['MRN']."<tab> | <tab>Geburtsdatum: ".$line['birthdate']."<tab> | <tab>Geschlecht: ".$gender."</p><br>";
+            echo "<p>Patienten MRN: ".$line['MRN']."<tab> | <tab>Geburtsdatum: ".$line['birthdate']."<tab> | <tab>Geschlecht: ".$gender."</p><br>";
             
             echo "<p class='lead'>Vital Signs</p>";
             echo "</div>";
@@ -47,7 +47,8 @@ WHERE patient.patientID = :patientID";
             FROM patient, vital_sign, sign
             WHERE patient.patientID = vital_sign.patientID
             AND vital_sign.signID = sign.signID 
-            AND patient.patientID = :patientID";
+            AND patient.patientID = :patientID
+            order by sign.sign_name DESC, vital_sign.time DESC;"; 
 
         $statement = $dbh->prepare($sql);
         $statement->bindParam(':patientID', $patientID, PDO::PARAM_INT);

@@ -33,7 +33,7 @@ try {
             echo "<div class='center'>";
 
             echo "<h1 class='col-md-12'> Patient: ".$line['first_name']."  ".$line['name']."</h1>";
-            echo "<p>Patienten ID: ".$line['MRN']."<tab> | <tab>Geburtsdatum: ".$line['birthdate']."<tab> | <tab>Geschlecht: ".$gender."</p><br>";
+            echo "<p>Patienten MRN: ".$line['MRN']."<tab> | <tab>Geburtsdatum: ".$line['birthdate']."<tab> | <tab>Geschlecht: ".$gender."</p><br>";
             echo "<p class='lead'>Medicine</p>";
             echo "</div>";
         }
@@ -45,7 +45,7 @@ try {
                         LEFT JOIN staff ON medicine.staffID_physician = staff.staffID
                         LEFT JOIN medicament ON medicine.medicamentID = medicament.medicamentID
                         where patientID =   :patientID
-                        order by medicine.time;";
+                        order by medicine.time DESC;";
 
         $statement = $dbh->prepare($sql);
         $statement->bindParam(':patientID', $patientID, PDO::PARAM_INT);
