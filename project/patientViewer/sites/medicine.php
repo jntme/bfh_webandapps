@@ -44,7 +44,7 @@ try {
 
             echo "<p>Patienten MRN: ".$line['MRN']."<tab> | <tab>Geburtsdatum: ".$line['birthdate']."<tab> | <tab>Geschlecht: ".$gender."</p><br>";
 
-            echo "<p class='lead'>Medicine</p>";
+            echo "<h3 class='lead'>Medication</h3>";
             echo "</div>";
      
         }

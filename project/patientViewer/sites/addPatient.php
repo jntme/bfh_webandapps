@@ -16,7 +16,9 @@ $first_name = $_POST['first_name'];
 
 $gender = $_POST['gender'];
 
-$birthdate =  $_POST['birthdate']; // (date(jjjj-mm-dd))
+$birthdate = $_POST['birthdate']; // (date(Y-m-d))
+//$birthdate = new DateTime($_POST['birthdate']);
+
 include('../additional_files/pdo.inc.php');
 
 try {
@@ -37,7 +39,7 @@ try {
     $stmt->bindParam(':name', $name, PDO::PARAM_STR,30);
     $stmt->bindParam(':first_name', $first_name, PDO::PARAM_STR, 30);
     $stmt->bindParam(':gender', $gender, PDO::PARAM_INT,11);
-    $stmt->bindParam(':birthdate', $birthdate, PDO::PARAM_STR);
+    $stmt->bindParam(':birthdate', $birthdate, PDO::PARAM_STR); //Y-m-d
 
     /*** execute the prepared statement ***/
     $stmt->execute();

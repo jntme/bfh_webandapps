@@ -47,7 +47,7 @@ WHERE patient.patientID = :patientID";
             echo "<h1 class='col-md-12'> Patient: ".$line['first_name']."  ".$line['name']."</h1>";
             echo "<p>Patienten MRN: ".$line['MRN']."<tab> | <tab>Geburtsdatum: ".$line['birthdate']."<tab> | <tab>Geschlecht: ".$gender."</p><br>";
             
-            echo "<p class='lead'>Vital Signs</p>";
+            echo "<h3 class='lead'>Vital Signs</h3>";
             echo "</div>";
         }
 

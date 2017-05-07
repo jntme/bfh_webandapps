@@ -28,7 +28,7 @@ try {
 
     $result = $dbh->query($sql);
 
-    echo "<div class='col-md-4'></div>";
+    echo "<div class='col-md-2'></div>";
     echo "<ul class='list-group col-md-4'>";
     
     while ($line = $result->fetch()) {
@@ -66,11 +66,8 @@ echo "</div>";
 
 <!-- Eingabeformular: add new Patient -->
 
-    </table>
-        </div>
-
-        <div class='col-md-1'></div>
-        <div class='col-md-4'>
+        <div class='col-md-4'></div>
+        <div class='col-md-6'>
         <div class='panel panel-default'>
         
         <div class='panel-heading'>
@@ -100,17 +97,17 @@ echo "</div>";
 
         <div class='form-group'>
         <label class='col-sm-2 control-label'>Gender</label>
-        <div class='col-sm-10'>Mann <input type="radio" name="gender" value="1" checked="true" /> Frau <input type="radio" name="gender" value="2"/>
-        <br />
-        </div>
+        <div class='col-sm-2'> Mann <input type="radio" name="gender" value="1" checked="true"/> Frau <input type="radio" name="gender" value="2"/>
+        </div></div>
 
+        
         <div class='form-group'>
         <label class='col-sm-2 control-label'>Birthdate</label>
-        <div class='col-sm-10'><input class='form-control col-sm-10' type='text' name='birthdate' placeholder='birthdate'></div>
+        <div class='col-sm-10'><input class='form-control col-sm-10' name='birthdate' placeholder='birthdate format: 1900-01-31'></div> <!-- type="date"-->
         </div>
 
         <div class='form-group'>
-        <div class="col-sm-offset-2 col-sm-10">
+        <div class="col-sm-offset-2 col-sm-2">
         <button class="btn btn-default" type='submit'>Add patient</button></form>
         </div>
         </div>
