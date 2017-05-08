@@ -24,16 +24,17 @@ try {
 
 
         while ($line = $statement0->fetch()) {
-          
-            $gender = ""; 
-                if ($line['gender'] == 1){
-                    $gender = "M";
-                } else {$gender = "W";}
+            $gender = "";
+            if ($line['gender'] == 1) {
+                $gender = "M";
+            } else {
+                $gender = "W";
+            }
 
             echo "<div class='center'>";
         
         ?>                
-            <div class="text-center col-sm-1">
+            <div class="text-center col-sm-12">
             <a href="index.php?state=patient&id=<?=$line['patientID']?>" class="btn btn-default" role="button">
             <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
             </a>
@@ -44,9 +45,8 @@ try {
 
             echo "<p>Patienten MRN: ".$line['MRN']."<tab> | <tab>Geburtsdatum: ".$line['birthdate']."<tab> | <tab>Geschlecht: ".$gender."</p><br>";
 
-            echo "<p class='lead'>Medicine</p>";
+            echo "<h3 class='lead'>Medication</h3>";
             echo "</div>";
-     
         }
 
         $sql = "SELECT 	medicine.medicamentID, medicine.time, medicine.quantity, medicine.patientID, medicine.staffID_nurse, medicine.staffID_physician, medicine.note, 

@@ -26,17 +26,17 @@ WHERE patient.patientID = :patientID";
       
 
         while ($line = $statement0->fetch()) {
-
-
-             $gender = ""; 
-                if ($line['gender'] == 1){
-                    $gender = "M";
-                } else {$gender = "W";}
+             $gender = "";
+            if ($line['gender'] == 1) {
+                $gender = "M";
+            } else {
+                $gender = "W";
+            }
 
             echo "<div class='center'>";
 
     ?>
-        <div class="text-center col-sm-1">           
+        <div class="text-center col-sm-12">           
         <a href="index.php?state=medicine&id=<?=$line['patientID']?>" class="btn btn-default" role="button">
         <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
         </a>
@@ -47,7 +47,7 @@ WHERE patient.patientID = :patientID";
             echo "<h1 class='col-md-12'> Patient: ".$line['first_name']."  ".$line['name']."</h1>";
             echo "<p>Patienten MRN: ".$line['MRN']."<tab> | <tab>Geburtsdatum: ".$line['birthdate']."<tab> | <tab>Geschlecht: ".$gender."</p><br>";
             
-            echo "<p class='lead'>Vital Signs</p>";
+            echo "<h3 class='lead'>Vital Signs</h3>";
             echo "</div>";
         }
 
@@ -57,7 +57,7 @@ WHERE patient.patientID = :patientID";
             WHERE patient.patientID = vital_sign.patientID
             AND vital_sign.signID = sign.signID 
             AND patient.patientID = :patientID
-            order by sign.sign_name DESC, vital_sign.time DESC;"; 
+            order by sign.sign_name DESC, vital_sign.time DESC;";
 
         $statement = $dbh->prepare($sql);
         $statement->bindParam(':patientID', $patientID, PDO::PARAM_INT);
