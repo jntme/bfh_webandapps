@@ -103,7 +103,7 @@ echo "</div>";
             <input type="radio" name="gender" checked="true" value="1">Mann
             </label>
             <label class="radio-inline">
-            <input type="radio" name="gender" value="1">Frau
+            <input type="radio" name="gender" value="2">Frau
             </label>
         </div>
 
