@@ -1,7 +1,7 @@
 <div class="center">
 
 <?php // Zeilen 13, 21, 33
-
+// TEST Kommentar
 // Test if the user is logged in.
 // If no : back to the login page!
 if (!isset($_SESSION['staffID'])) {
