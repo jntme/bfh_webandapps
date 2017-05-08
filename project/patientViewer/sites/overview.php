@@ -28,9 +28,11 @@ try {
 
     $result = $dbh->query($sql);
 
-    echo "<div class='col-md-2'></div>";
-    echo "<ul class='list-group col-md-4'>";
+    echo "<div class='row'>";
+    echo "<div class='col-md-1'></div>";
+    echo "<ul class='list-group col-md-5'>";
     
+    //print out list of patients
     while ($line = $result->fetch()) {
         echo "<li class='list-group-item'>";
         echo "<div class='row'>";
@@ -59,15 +61,16 @@ echo "</div>";
     }
 
     echo "</ul>";
-    echo "<div class='col-md-4'></div>";
     
     $dbh = null;
 ?>
 
+
 <!-- Eingabeformular: add new Patient -->
 
-        <div class='col-md-4'></div>
-        <div class='col-md-6'>
+
+       
+        <div class='col-md-5'>
         <div class='panel panel-default'>
         
         <div class='panel-heading'>
@@ -96,9 +99,14 @@ echo "</div>";
         </div>
 
         <div class='form-group'>
-        <label class='col-sm-2 control-label'>Gender</label>
-        <div class='col-sm-2'> Mann <input type="radio" name="gender" value="1" checked="true"/> Frau <input type="radio" name="gender" value="2"/>
-        </div></div>
+            <label class='col-sm-2 control-label'>Gender</label>
+            <label class="radio-inline">
+            <input type="radio" name="gender" checked="true" value="1">Mann
+            </label>
+            <label class="radio-inline">
+            <input type="radio" name="gender" value="1">Frau
+            </label>
+        </div>
 
         
         <div class='form-group'>
@@ -112,9 +120,10 @@ echo "</div>";
         </div>
         </div>
 
+        <div class='col-md-1'></div>
+        </div> <!-- end of row -->
 
 <?php
-
 } catch (PDOException $e) {
     /*** echo the sql statement and error message ***/
     echo $e->getMessage();
