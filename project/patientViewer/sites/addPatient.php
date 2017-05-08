@@ -17,7 +17,6 @@ $first_name = $_POST['first_name'];
 $gender = $_POST['gender'];
 
 $birthdate = $_POST['birthdate']; // (date(Y-m-d))
-//$birthdate = new DateTime($_POST['birthdate']);
 
 include('../additional_files/pdo.inc.php');
 
